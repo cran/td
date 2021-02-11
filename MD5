@@ -1,0 +1,11 @@
+d13807537298a3d543495ec3037aba42 *ChangeLog
+cd41291f99774b2591a2fb9dc5afc9bb *DESCRIPTION
+045a41412e63142576e958b4e1f3dc1f *NAMESPACE
+a6aba8364dbeb83b7cba4a0c97b6b037 *R/init.R
+8aba8821f9d365dd1eb38fbbdf6a789b *R/time_series.R
+2ff2fd2387dcdff0f2532cfb2bcfcf2b *README.md
+f701d23ed878f8e8260deeef670c2aee *build/partial.rdb
+76e2d3c32bf28cc0d14346447d8d7b9d *inst/tinytest/test_td.R
+ea5221ef7ebdc000ee5f3824a8176f95 *man/td-package.Rd
+473e4caa8172ae6a4dc7527d506acb81 *man/time_series.Rd
+41894e4ae15f118f8d4d87929db65b29 *tests/tinytest.R

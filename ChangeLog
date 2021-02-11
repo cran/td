@@ -1,0 +1,27 @@
+2021-02-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/time_series.R (time_series): Signficantly extended by supporting
+	essentially all optional arguments in API, simplified time parsing
+	* man/time_series.Rd: Added documentation
+
+	* DESCRIPTION: Removed Suggests: on package anytime
+
+	* inst/tinytest/test_td.R: Minimal testing
+
+	* README.md: Expanded with two more examples
+
+2021-02-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/init.R: Refactored to be usable when either attached or loaded
+
+	* README.md: Added
+	* docs/spy.png: Idem
+	* .github/workflows/ci.yaml: Idem
+
+2021-02-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Initial version
+	* NAMESPACE: Ditto
+	* R/time_series.R: Basic accessor
+	* R/init.R: Cache key from either config file or env var
+	* man/*: Initial documentation
