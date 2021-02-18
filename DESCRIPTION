@@ -1,8 +1,8 @@
 Package: td
 Type: Package
 Title: Access to the 'twelvedata' Financial Data API
-Version: 0.0.1
-Date: 2021-02-06
+Version: 0.0.2
+Date: 2021-02-18
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: The 'twelvedata' REST service offers access to current and historical
@@ -16,6 +16,6 @@ Suggests: tinytest, xts
 Encoding: UTF-8
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2021-02-07 18:52:40 UTC; edd
+Packaged: 2021-02-18 13:33:27 UTC; edd
 Repository: CRAN
-Date/Publication: 2021-02-11 10:20:02 UTC
+Date/Publication: 2021-02-18 13:50:02 UTC

@@ -3,6 +3,9 @@
 
 [![CI](https://github.com/eddelbuettel/td/workflows/ci/badge.svg)](https://github.com/eddelbuettel/td/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](https://www.r-pkg.org/badges/version/td)](https://cran.r-project.org/package=td)
+[![Dependencies](https://tinyverse.netlify.com/badge/td)](https://cran.r-project.org/package=td)
+[![Downloads](https://cranlogs.r-pkg.org/badges/td?color=brightgreen)](https://www.r-pkg.org/pkg/td)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/td)](https://github.com/eddelbuettel/td)
 
 ### Motivation
@@ -29,7 +32,7 @@ Here we are running (some) code from shown in `example(time_series)`
 retrieves an `xts` object (provided [xts](https://cran.r-project.org/package=xts) is installed) 
 and produces a chart like this:
 
-![](docs/spy.png)
+![](https://eddelbuettel.github.io/td/spy.png)
 
 The package can also be used without attaching it. The next example retrieves twenty years of weekly
 CAD/USD foreign exchange data using a direct `td::time_series()` call with having the package
@@ -65,7 +68,7 @@ As before, it can be plotted using a function from package
 > quantmod::chart_Series(cadusd, name=attr(data, "symbol"))
 ```
 
-![](docs/cadusd.png)
+![](https://eddelbuettel.github.io/td/cadusd.png)
 
 As the returned is a the very common and well-understood [xts] format, many other plotting functions
 can be used as-is. Here is an example also showing how historical data can be accessed.  We retrieve
@@ -86,7 +89,7 @@ and exchange as a header:
 > quantmod::chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
 ```
 
-![](docs/gme.png)
+![](https://eddelbuettel.github.io/td/gme.png)
 
 Naturally, other plotting functions and packages can be used. Here we use the _same dataset but
 efficiently subset_ using a key `xts` feature and fed into CRAN package
@@ -96,16 +99,34 @@ efficiently subset_ using a key `xts` feature and fed into CRAN package
 > rtsplot::rtsplot(gme["20210128"], main="GME on 2021-Jan-28", type="ohlc")
 ```
 
-![](docs/gme_20210128.png)
+![](https://eddelbuettel.github.io/td/gme_20210128.png)
 
+
+If a vector of symbols is used in the query, a list of results is returned:
+
+```r
+> res <- time_series(c("SPY", "QQQ", "IWM", "EEM"), outputsize=300, as="xts")
+> op <- par(mfrow=c(2,2))
+> sapply(res, function(x) quantmod::chart_Series(x, name=attr(x, "symbol")))
+> par(op)
+```
+
+As of version 0.0.2, additional `get_quote()` and `get_price()` accessors are available.
 
 ### Status
 
-Still fairly new and fresh.
+Still fairly new and fresh, but already fairly feature-complete. The package is also officially
+[recommended and approved](https://github.com/twelvedata/twelvedata-r-sdk) by [Twelve
+Data](https://www.twelvedata.com), but is developed independently.  For an officially supported
+package, see their [twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
 
-We also note that the package is not affiliated with [twelvedata](https://www.twelvedata.com). For
-an officially supported package, see their
-[twelvedata-python](https://github.com/twelvedata/twelvedata-python) package.
+On Windows, an updated version of [RcppSimdJson](https://github.com/eddelbuettel/) is needed as
+discussed in the twin issues [#1 here](https://github.com/eddelbuettel/td/issues/1) and [#66 at
+RcppSimdJson](https://github.com/eddelbuettel/rcppsimdjson/issues/66): the path was insufficiently
+sanitized on Windows leading an error when trying to create a temporary file. A fixed version of
+[RcppSimdJson](https://github.com/eddelbuettel/) will be provided in a few days. Until then, Windows
+users can install a (Windows binary) pre-release via `install.packages("RcppSimdJson",
+repo="http://ghrr.gihub.io/drat")`.
 
 ### Contributing
 

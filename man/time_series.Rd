@@ -12,8 +12,9 @@ time_series(sym, interval = c("1min", "5min", "15min", "30min", "45min", "1h",
   end_date = NA_character_, previous_close = FALSE, apikey)
 }
 \arguments{
-\item{sym}{(character) A symbol understood as the backend such a stock symbol, foreign
-exchange pair, or more. See the \sQuote{twelvedata} documentation.}
+\item{sym}{(character) A (single or vector) symbol understood by the backend as a stock
+symbol, foreign exchange pair, or more. See the \sQuote{twelvedata} documentation for
+details on what is covered. In the case of a vector of arguments a list is returned.}
 
 \item{interval}{(character) A valid interval designator ranging form \dQuote{1min} to
 \dQuote{1month}. Currently supported are 1, 5, 15, 30 and 45 minutes, 1, 2, 4 hours (using
@@ -66,7 +67,8 @@ previous close value, defaults to \code{FALSE}.}
 
 \item{apikey}{(optional character) An API key override, if missing a value cached from
 package startup is used. The startup looks for either a file in the per-package config
-directory provided by \code{tools::R_user_dir}, or the \code{TWELVEDATA_API_KEY} variable.}
+directory provided by \code{tools::R_user_dir} (for R 4.0.0 or later), or the
+\code{TWELVEDATA_API_KEY} variable.}
 }
 \value{
 The requested data is returned in the requested format containing columns for
@@ -74,6 +76,7 @@ data(time), open, high, low, close, and volume. If the request was unsuccessful,
 an error message is returned. The date or datetime column is returned parsed as either
 a \code{Date} or \code{Datetime} where the latter is parsed under the exchange timezone
 if present. Additional meta data returned from the query is also provided as attributes.
+If the call contained a vector of symbols, a (named) list of elements is returned.
 }
 \description{
 Retrieve Time Series Data from \sQuote{twelvedata}
@@ -82,10 +85,6 @@ Retrieve Time Series Data from \sQuote{twelvedata}
 This function access time series data from \sQuote{twelvedata}. It requires an API key
 to be registered and to be supplied either in user-config file (TODO: add simple
 writer) or an environment variable.
-
-The supported API is richer than what the function currently supports, notably with
-respect to \emph{multiple} symbols in one request. We expect to expand the function to return
-a list.
 
 All suitable optional parameters of the API are now supported. We excluded return as csv as
 this downloader encompasses that functionality by returning a parsed object.
@@ -105,6 +104,11 @@ if (requireNamespace("quantmod", quietly=TRUE))
    gme <- time_series("GME", "1min", start_date="2021-01-25T09:30:00",
                        end_date="2021-02-04T16:00:00", as="xts")
    chart_Series(gme, name=paste0(attr(gme, "symbol"), "/", attr(gme, "exchange")))
+
+   res <- time_series(c("SPY", "QQQ", "IWM", "EEM"), outputsize=300, as="xts")
+   op <- par(mfrow=c(2,2))
+   sapply(res, function(x) quantmod::chart_Series(x, name=attr(x, "symbol")))
+   par(op)
 }
 }
 \seealso{
