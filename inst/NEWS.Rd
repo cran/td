@@ -3,6 +3,21 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/td/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/td/issues/#1}{##1}}
 
+\section{Changes in version 0.0.5 (2021-10-28)}{
+  \itemize{
+    \item New functions to access twelvedata reference data (Kenneth in
+    \ghpr{4} addressubf \ghit{3})
+  }
+}
+
+\section{Changes in version 0.0.4 (2021-06-05)}{
+  \itemize{
+    \item The version comparison was corrected and the package no longer
+    (formally) depends on R (>= 4.0.0)
+    \item Very minor README.md edits
+  }
+}
+
 \section{Changes in version 0.0.3 (2021-05-29)}{
   \itemize{
     \item The package now (formally) depends on R (>= 4.0.0) as it uses
