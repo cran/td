@@ -1,5 +1,5 @@
-d40a461dad43acbc83b63794a119e1a8 *ChangeLog
-1417ef74dc837f65c7a5aa96a05e57d8 *DESCRIPTION
+3fae9827a733295ba1d20d37e4c20fb0 *ChangeLog
+4f2eeb3aa529fb688ada269b3c2cd7f0 *DESCRIPTION
 045a41412e63142576e958b4e1f3dc1f *NAMESPACE
 0a29c331796d8517237ab108fad8ebf9 *R/init.R
 d80a270c0d6106e146768a2a596b394e *R/key.R
@@ -14,10 +14,10 @@ a71d22b85258a76c166b69f8ad0b1ff0 *R/ref_forex_pairs.R
 7a4fa80cb47790beb8c6b83130892282 *R/ref_indices.R
 ab1b86a9e15fca952f8a34b70f0f22ef *R/ref_stocks.R
 339d54632f1a5a75332c6346a8f9f950 *R/ref_symbol_search.R
-4719081ca0aa8eecc7af228301113527 *R/time_series.R
+2a2ddcedaaaeeba7840687d9049fdcce *R/time_series.R
 0b15eb1f5edca782887e27453a12255f *README.md
-77098b91488ee3f9edcef02b49d06a4f *build/partial.rdb
-fe22a793b6fa557e1d6e96630c5b207f *inst/NEWS.Rd
+b1ddf4fdbb68e79340d7b76563fbd453 *build/partial.rdb
+bdd7e09b662e2e39fb51de2945af5f23 *inst/NEWS.Rd
 aa52964d294dac0e03c23cb8fe334f61 *inst/tinytest/test_td.R
 8ec926febc60410e798371b7ec33484b *man/get_price.Rd
 e2ab38398d90e24ab8138e98c85b3f45 *man/get_quote.Rd
